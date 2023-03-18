@@ -21,6 +21,8 @@ spec:
       - image: {{.CustomRegistries.RegistryCreds  | default .ImageRepository | default .Registries.RegistryCreds }}{{.Images.RegistryCreds}}
         name: registry-creds
         imagePullPolicy: IfNotPresent
+        args:
+          - --skip-kube-system=false'
         env:
           - name: AWS_ACCESS_KEY_ID
             valueFrom:
